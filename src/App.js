@@ -16,6 +16,7 @@ const App = () => {
   const [isGameRunning, setIsGameRunning] = useState(false);
   const [player, setPlayer] = useState(true);
   const [currentState, setCurrentState] = useState(new Array(9));
+  const [gameWinner, setGameWinner] = useState(null);
 
   const startHandler = () => {
     setIsGameRunning(true);
@@ -53,14 +54,14 @@ const App = () => {
       winningCombs.forEach((winningCombo) => {
         if (winningCombo.every((number) => indexesX.includes(number))) {
           setIsGameRunning(false);
-          console.log("Winner is: Player 1");
+          setGameWinner("Player 1");
         }
       });
 
       winningCombs.forEach((winningCombo) => {
         if (winningCombo.every((number) => indexesO.includes(number))) {
           setIsGameRunning(false);
-          console.log("Winner is: Player 2");
+          setGameWinner("Player 2");
         }
       });
     };
@@ -90,6 +91,12 @@ const App = () => {
       >
         Start game
       </button>
+      {gameWinner !== null ? (
+        <div className={classes.winnerDiv}>
+          <span style={{ color: "green", fontWeight: 700 }}>Winner:&nbsp;</span>
+          <span style={{ fontWeight: 700 }}>{gameWinner}</span>
+        </div>
+      ) : null}
 
       <div className={classes.gameDiv}>
         <div className={classes.gameBorders}>

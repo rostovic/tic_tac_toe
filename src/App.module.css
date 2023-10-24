@@ -134,3 +134,10 @@
   border-bottom: 4px solid black;
   border-left: 2px solid black;
 }
+
+.winnerDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
