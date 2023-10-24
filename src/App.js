@@ -87,7 +87,10 @@ const App = () => {
           pointerEvents: isGameRunning ? "none" : "auto",
         }}
         disabled={isGameRunning}
-        onClick={() => startHandler()}
+        onClick={() => {
+          setGameWinner(null);
+          startHandler();
+        }}
       >
         Start game
       </button>
