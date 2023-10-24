@@ -66,6 +66,13 @@ const App = () => {
       });
     };
     checkWinner();
+
+    const isEveryElementDefined = currentState.includes(undefined);
+
+    if (gameWinner === null && !isEveryElementDefined) {
+      setGameWinner("Draw");
+      setIsGameRunning(false);
+    }
     setPlayer((prev) => !prev);
   }, [currentState]);
 
